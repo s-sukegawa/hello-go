@@ -1,0 +1,1 @@
+package main\n\nimport (\n    "encoding/json"\n    "net/http"\n)\n\nfunc main() {\n    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {\n        w.Header().Set("Content-Type", "application/json")\n        json.NewEncoder(w).Encode(map[string]string{"message": "Hello, World!"})\n    })\n    http.ListenAndServe(":8080", nil)\n}
