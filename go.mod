@@ -1,5 +1,3 @@
 module hello-go
 
-require ( 
-	// Define dependencies here
-)
+go 1.20
