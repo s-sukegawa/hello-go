@@ -43,3 +43,8 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: echo "Pushed ${REGISTRY}/${ECR_REPOSITORY}:latest"
+
+      - name: Deploy App Runner
+        run: |
+          aws apprunner start-deployment \
+            --service-arn ${{ secrets.APP_RUNNER_SERVICE_ARN }}
